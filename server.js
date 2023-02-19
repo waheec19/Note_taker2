@@ -8,7 +8,7 @@ const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 
 
-// Using Express
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({
@@ -18,25 +18,24 @@ app.use(express.json());
 app.use(express.static(__dirname + '/public'));
 
 
-// making HTML Routes
-// making Home Page Route
+
 app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "/public/index.html"));
 });
-// making Note Taker Route
+
 app.get("/notes", function (req, res) {
     res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
 
-// making GET Route
+
 app.get("/api/notes", async function (req, res) {
     const noteData = await getNotes();
     return res.status(200).json(noteData);
 });
 
 
-// making POST Route
+
 app.post("/api/notes", async function (req, res) {
     let newNote = req.body;
     const noteData = await getNotes();
@@ -49,7 +48,7 @@ app.post("/api/notes", async function (req, res) {
     return res.sendStatus(201);
 });
 
-//making DELETE Route
+
 app.delete("/api/notes/:id", async function (req, res) {
     let noteID = Number(req.params.id);
     const noteData = await getNotes();
@@ -63,7 +62,7 @@ app.delete("/api/notes/:id", async function (req, res) {
     return res.sendStatus(200);
 });
 
-//making a Read function
+
 const getNotes = async () => {
     try {
         const data = await readFile(path.join(__dirname, './db/db.json'), 'utf8');
@@ -74,7 +73,6 @@ const getNotes = async () => {
     }
 };
 
-//making a Write function
 const writeNotes = async (data) => {
     try {
         const update = await writeFile(
@@ -88,7 +86,7 @@ const writeNotes = async (data) => {
     }
 };
 
-// Initiate Listener to start server
+
 app.listen(PORT, function () {
     console.log("App listening on PORT: " + PORT);
 });

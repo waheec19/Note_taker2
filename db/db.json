@@ -1,6 +1,6 @@
 [
-{"title":"This","text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at gravida massa.","id":1},
-{"title":"Takes","text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.","id":2},
-{"title":"Notes","text":"Curabitur efficitur eget ex bibendum ullamcorper", "id":3},
+{"title":"This","text":"Note 1","id":1},
+{"title":"Takes","text":"Note 2","id":2},
+{"title":"Notes","text":"Note 3", "id":3},
 {"title":"yo","text":"knk\n","id":4}
 ]
